@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 import { Cabecera } from "./components/Cabecera";
 import { Inicio } from "./components/Inicio";
 import { Listado } from "./components/Listado";
+import { Login } from "./components/Login";
 
 function App() {
   const [logeado, setLogeado] = useState(false);
@@ -30,13 +31,13 @@ function App() {
         <Cabecera logeado={logeado} setLogeado={setLogeado} />
         <Switch>
           <Route path="/listado" exact>
-            <Listado />
+            <Listado logeado={logeado} />
           </Route>
           <Route path="/inicio" exact>
-            <Inicio />
+            <Inicio logeado={logeado} />
           </Route>
           <Route path="/login" exact>
-            <p>loginsito</p>
+            <Login setLogeado={setLogeado} logeado={logeado} />
           </Route>
         </Switch>
       </Router>

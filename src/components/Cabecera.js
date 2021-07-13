@@ -7,8 +7,15 @@ export const Cabecera = (props) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (!logeado) history.push("/login");
+    if (!logeado) {
+      history.push("/login");
+    }
   }, [history, logeado]);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setLogeado(false);
+  };
   return (
     <header>
       <nav>
@@ -25,7 +32,7 @@ export const Cabecera = (props) => {
           </li>
           {!logeado || (
             <li>
-              <button onClick={() => setLogeado(false)}>Logout</button>
+              <button onClick={logout}>Logout</button>
             </li>
           )}
         </ul>
