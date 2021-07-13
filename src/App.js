@@ -15,16 +15,6 @@ import { Login } from "./components/Login";
 function App() {
   const [logeado, setLogeado] = useState(false);
 
-  // const actualizarApi = async () => {
-  //   const resp = await fetch("http://localhost:4000/");
-  //   const json = await resp.json();
-
-  //   setTextoApi(json.mensaje);
-  // };
-
-  // if (textoApi === "") {
-  //   actualizarApi();
-  // }
   return (
     <>
       <Router>

@@ -9,13 +9,16 @@ export const Login = (props) => {
   const logearUsuario = async (e) => {
     e.preventDefault();
     const credenciales = { user: username, pass: password };
-    const resp = await fetch("http://localhost:4000/usuarios/login", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credenciales),
-    });
+    const resp = await fetch(
+      "https://ejercicio-08.herokuapp.com/usuarios/login",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credenciales),
+      }
+    );
     if (resp.ok) {
       const { token } = await resp.json();
       localStorage.setItem("token", token);
